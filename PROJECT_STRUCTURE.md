@@ -18,8 +18,9 @@ northstar-backend/
 ├── tsconfig.json                # TypeScript configuration
 ├── nest-cli.json                # NestJS CLI configuration
 ├── docker-compose.yml           # Docker services configuration
-├── Makefile                     # Development shortcuts
+├── .env.example                 # Environment variables template
 ├── .gitignore                   # Git ignore rules
+├── Makefile                     # Development shortcuts (Unix/macOS)
 │
 ├── src/                         # Source code
 │   ├── main.ts                  # Application entry point

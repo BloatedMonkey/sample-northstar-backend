@@ -280,7 +280,11 @@ If you're on Windows PowerShell:
    npm run start:dev
    ```
 
+## Contributing
+
+This is a portfolio project. For questions or feedback, please open an issue on GitHub.
+
 ## License
 
-UNLICENSED
+UNLICENSED - This is a portfolio project for demonstration purposes.
 

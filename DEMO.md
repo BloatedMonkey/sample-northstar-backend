@@ -7,16 +7,21 @@ A concise guide to demonstrate the backend to clients (OrangeMacro) in 2 minutes
 ## Quick Start
 
 ```bash
-# One command to start everything
-make dev
+# Start Docker services
+docker compose up -d
 
-# Or manually:
-docker-compose up -d
+# Install dependencies (if not done)
 npm install
+
+# Set up database
 npm run prisma:migrate
 npm run prisma:seed
+
+# Start development server
 npm run start:dev
 ```
+
+> **Note:** On Windows, use the commands above. The `make dev` command is only available on Unix-like systems.
 
 **Server**: http://localhost:3000  
 **API Docs**: http://localhost:3000/api/docs  
