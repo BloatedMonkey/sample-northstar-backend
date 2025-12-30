@@ -1,10 +1,14 @@
 {
   "name": "northstar-backend",
   "version": "1.0.0",
-  "description": "Backend service for Northstar service marketplace platform",
+  "description": "Production-grade backend service for a service marketplace platform. Built with NestJS, TypeScript, PostgreSQL, and Redis.",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BloatedMonkey/sample-northstar-backend.git"
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
