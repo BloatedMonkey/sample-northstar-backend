@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  BUSINESS
+  STAFF
+  CUSTOMER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum ServiceRequestStatus {
+  DRAFT
+  SUBMITTED
+  IN_REVIEW
+  ACCEPTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String
+  role      UserRole   @default(CUSTOMER)
+  status    UserStatus @default(ACTIVE)
+  firstName String?
+  lastName  String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  business        Business?
+  customerProfile CustomerProfile?
+  responses       ProviderResponse[]
+  notes           Note[]
+  auditLogs       AuditLog[]
+
+  @@index([email])
+  @@index([role, status])
+  @@map("users")
+}
+
+model Business {
+  id          String   @id @default(uuid())
+  ownerId     String   @unique
+  name        String
+  description String?
+  settings    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@index([ownerId])
+  @@map("businesses")
+}
+
+model CustomerProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  phone     String?
+  address   String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  serviceRequests ServiceRequest[]
+
+  @@index([userId])
+  @@map("customer_profiles")
+}
+
+model ServiceRequest {
+  id          String               @id @default(uuid())
+  customerId  String
+  title       String
+  description String
+  status      ServiceRequestStatus @default(DRAFT)
+  priority    Int                  @default(0)
+  metadata    Json?
+  submittedAt DateTime?
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+
+  customer  CustomerProfile    @relation(fields: [customerId], references: [userId], onDelete: Cascade)
+  responses ProviderResponse[]
+  notes     Note[]
+
+  @@index([customerId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([status, createdAt])
+  @@map("service_requests")
+}
+
+model ProviderResponse {
+  id               String   @id @default(uuid())
+  serviceRequestId String
+  providerId       String
+  quote            Float?
+  message          String?
+  estimatedDays    Int?
+  status           String   @default("PENDING")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  serviceRequest ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+  provider       User           @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([serviceRequestId])
+  @@index([providerId])
+  @@index([status])
+  @@map("provider_responses")
+}
+
+model Note {
+  id               String   @id @default(uuid())
+  serviceRequestId String?
+  authorId         String
+  content          String
+  isInternal       Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  serviceRequest ServiceRequest? @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+  author         User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([serviceRequestId])
+  @@index([authorId])
+  @@index([createdAt])
+  @@map("notes")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  action     String
+  resource   String
+  resourceId String?
+  metadata   Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([resource, resourceId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model ApiKey {
+  id          String    @id @default(uuid())
+  key         String    @unique
+  name        String
+  description String?
+  isActive    Boolean   @default(true)
+  lastUsedAt  DateTime?
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([key])
+  @@index([isActive])
+  @@map("api_keys")
+}
