@@ -49,7 +49,7 @@
     "@nestjs/swagger": "^7.1.17",
     "@nestjs/throttler": "^5.0.1",
     "@nestjs/websockets": "^10.4.22",
-    "@prisma/client": "^5.7.1",
+    "@prisma/client": "^7.2.0",
     "bcrypt": "^5.1.1",
     "bullmq": "^5.0.0",
     "class-transformer": "^0.5.1",
