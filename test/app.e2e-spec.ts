@@ -26,6 +26,7 @@ describe('AppController (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
+    app.setGlobalPrefix(process.env.API_PREFIX || 'v1');
     app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,
