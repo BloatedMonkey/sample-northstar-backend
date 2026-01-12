@@ -49,7 +49,7 @@ When using this project:
 ## Contact
 
 For questions, collaboration opportunities, or feedback:
-- GitHub: [Repository Issues](https://github.com)
+- Email: workarman9@gmail.com
 - Professional inquiries: Available upon request
 
 ---

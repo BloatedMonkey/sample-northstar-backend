@@ -76,7 +76,6 @@ Northstar Platform - [Component Name]
 Original Author: Arman Hazrati
 Source: https://github.com/[your-github]/northstar-platform
 License: MIT
-Modified for [your purpose]
 ```
 
 ### Example in Code:
