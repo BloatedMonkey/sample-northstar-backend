@@ -1,4 +1,24 @@
-# Northstar Backend - Technical Portfolio
+# Northstar Platform - Full-Stack Portfolio Project
+
+**🌟 Production-Ready, Enterprise-Grade, Full-Stack Service Platform**
+
+[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://github.com/BloatedMonkey/northstar-platform)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![NestJS](https://img.shields.io/badge/NestJS-10-red)](https://nestjs.com/)
+
+---
+
+## 🌐 Live Demo
+
+> **Note:** Add your deployed URLs here after deployment
+
+**🔗 Frontend:** [Coming Soon - Deploy to Vercel]  
+**🔗 Backend API:** [Coming Soon - Deploy to Railway]  
+**🔗 API Documentation:** [Coming Soon - Swagger UI]
+
+> Demo credentials will be provided after deployment
 
 **Author:** Arman Hazrati  
 **Project Type:** Production-Grade Backend Service  
