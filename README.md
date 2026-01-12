@@ -273,37 +273,38 @@ This project includes comprehensive documentation:
 
 API documentation is also available via Swagger UI at `/api/docs` when running the server.
 
-## Windows Setup Notes
+## Platform Notes
 
-If you're on Windows PowerShell:
+### Windows
+If using Windows PowerShell, all npm scripts work directly. The `make` command requires Unix-like systems (Linux/macOS) or WSL.
 
-1. **Use `npx` for scripts** - All test scripts use `npx` to ensure local binaries are used
-2. **No `make` command** - Use these commands instead:
-   ```bash
-   docker compose up -d
-   npm run prisma:generate
-   npm run prisma:migrate
-   npm run prisma:seed
-   npm run start:dev
-   ```
+Alternative to `make dev`:
+```bash
+docker compose up -d
+npm run prisma:generate
+npm run prisma:migrate
+npm run prisma:seed
+npm run start:dev
+```
+
+### macOS/Linux
+Use either `make` commands or npm scripts directly.
 
 ## Contributing
 
 Contributions, suggestions, and feedback are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
-This is a portfolio project demonstrating production-grade backend development by Arman Hazrati.
-
 ## Author
 
 **Arman Hazrati**
 
-This project is part of my professional portfolio, showcasing production-grade backend development capabilities with modern technologies and best practices.
+This project demonstrates production-grade backend development capabilities with modern technologies, clean architecture, and professional software engineering practices.
 
 ## License
 
-MIT License - See LICENSE file for details
+MIT License - See [LICENSE](./LICENSE) file for details
 
 Copyright (c) 2024 Arman Hazrati
 
-This project is open source and available for educational purposes. While the code is freely available, this project serves as a demonstration of professional software development skills.
+This project is open source and available for educational purposes.
 

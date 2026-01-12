@@ -108,11 +108,10 @@ export class EmailProcessor extends WorkerHost {
       this.logger.debug(`Email data: ${JSON.stringify(data)}`, 'EmailProcessor');
     }
 
-    // TODO: Integrate with actual email service
-    // Example integrations:
-    // 1. SendGrid: await this.sendGridService.send({ to, subject, html })
-    // 2. AWS SES: await this.sesService.sendEmail({ to, subject, html })
-    // 3. Nodemailer: await this.transporter.sendMail({ to, subject, html })
+    // NOTE: For production, integrate with an email service:
+    // - SendGrid: await this.sendGridService.send({ to, subject, html })
+    // - AWS SES: await this.sesService.sendEmail({ to, subject, html })
+    // - Nodemailer: await this.transporter.sendMail({ to, subject, html })
   }
 
   /**
