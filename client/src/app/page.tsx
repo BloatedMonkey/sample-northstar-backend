@@ -170,13 +170,33 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* Footer */}
+      {/* Footer with Copyright */}
       <footer className="mt-16 border-t bg-white py-8">
-        <div className="container mx-auto px-4 text-center text-sm text-gray-600">
-          <p>© 2024 Northstar Platform. Built by Arman Hazrati.</p>
-          <p className="mt-2">
-            Open source under MIT License. Production-ready full-stack application.
-          </p>
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="font-semibold text-gray-900">
+              © {new Date().getFullYear()} Northstar Platform. All Rights Reserved.
+            </p>
+            <p className="mt-2 text-sm text-gray-600">
+              Developed by <span className="font-semibold text-primary-600">Arman Hazrati</span>
+            </p>
+            <p className="mt-1 text-xs text-gray-500">
+              Licensed under MIT License. Portfolio Project - Enterprise Full-Stack Application
+            </p>
+            <p className="mt-4 text-xs text-gray-400">
+              Built with Next.js 14, NestJS, TypeScript, PostgreSQL, Redis, Docker & Kubernetes
+            </p>
+          </div>
+          
+          {/* Attribution Badge */}
+          <div className="mt-6 flex justify-center">
+            <div className="inline-flex items-center space-x-2 rounded-full border-2 border-primary-300 bg-primary-50 px-6 py-2 text-sm font-semibold text-primary-700 shadow-sm">
+              <span>🏗️</span>
+              <span>Built by Arman Hazrati</span>
+              <span className="mx-2">•</span>
+              <span>Senior Full-Stack Engineer</span>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

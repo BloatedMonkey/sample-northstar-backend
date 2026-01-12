@@ -1,6 +1,11 @@
 /**
+ * Northstar Platform - Dashboard Layout Component
+ * 
  * @author Arman Hazrati
- * Main dashboard layout with navigation
+ * @license MIT
+ * @description Main dashboard layout with navigation and user authentication
+ * 
+ * This is a portfolio project demonstrating enterprise-level full-stack development.
  */
 'use client';
 
@@ -132,7 +137,18 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        <main className="flex-1 overflow-y-auto p-6">
+          {children}
+          
+          {/* Copyright Badge */}
+          <div className="mt-8 flex justify-center">
+            <div className="inline-flex items-center space-x-2 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-xs text-gray-600">
+              <span>© {new Date().getFullYear()} Arman Hazrati</span>
+              <span className="mx-1">•</span>
+              <span>Northstar Platform</span>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
